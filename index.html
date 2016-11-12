@@ -3,8 +3,65 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<style type="text/css">
+		img{
+			width:300px;
+		}
+
+		*{
+			margin:0px;
+			padding:0px;
+		}
+		.picbox{
+			width:300px;
+			overflow: hidden;
+		}
+		.piclist{
+			width:1500px;
+		}
+		.piclist li{
+			list-style: none;
+			float: left;
+		}
+		.numlist li{
+			width:20px;
+			height:20px;
+			float: left;
+			text-align: center;
+			line-height: 20px;
+			border:1px solid blue;
+			list-style: none;
+			cursor: pointer;
+		}
+	</style>
 </head>
 <body>
-	<h1>这是我的第一个网站</h1>
+	<div class="picbox">
+		<ul class="piclist">
+			<li><img src="images/1.jpg" alt=""></li>
+			<li><img src="images/2.jpg" alt=""></li>
+			<li><img src="images/3.jpg" alt=""></li>
+			<li><img src="images/4.jpg" alt=""></li>
+			<li><img src="images/5.jpg" alt=""></li>
+		</ul>
+	</div>
+	<ul class="numlist">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+
+	<script src="script/jquery.js"></script>
+	<script>
+		$(".numlist li").click(function(){  //给数字列表绑定事件
+			var index = $(this).index();    //获取点击数字的索引
+			var marLeft = index * -300;
+			$(".piclist").animate({
+				marginLeft:marLeft  
+			},500)
+		})
+	</script>
 </body>
 </html>
